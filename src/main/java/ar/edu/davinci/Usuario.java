@@ -1,6 +1,6 @@
 package ar.edu.davinci;
 
-public class Usuario {
+public class Usuario implements Observer {
     private String nombre;
     private UmbralTemperatura umbral;
 
@@ -9,6 +9,7 @@ public class Usuario {
         this.umbral = umbral;
     }
 
+    @Override
     public void actualizar(double temperatura) {
         if (temperatura < umbral.obtenerMinimo() || temperatura > umbral.obtenerMaximo()) {
             System.out.println("Notificación para " + nombre + ": Temperatura fuera de rango: " + temperatura + "°C");

@@ -3,27 +3,30 @@ package ar.edu.davinci;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SensorTemperatura {
-    private List<Usuario> observadores = new ArrayList<>();
+public class SensorTemperatura implements Observable {
+    private List<Observer> observadores = new ArrayList<>();
     private double temperaturaActual;
 
-    public void agregarObservador(Usuario observador) {
+    @Override
+    public void agregarObservador(Observer observador) {
         observadores.add(observador);
     }
 
-    public void eliminarObservador(Usuario observador) {
+    @Override
+    public void eliminarObservador(Observer observador) {
         observadores.remove(observador);
+    }
+
+    @Override
+    public void notificarObservadores() {
+        for (Observer observador : observadores) {
+            observador.actualizar(temperaturaActual);
+        }
     }
 
     public void establecerTemperatura(double temperatura) {
         this.temperaturaActual = temperatura;
         notificarObservadores();
-    }
-
-    private void notificarObservadores() {
-        for (Usuario observador : observadores) {
-            observador.actualizar(temperaturaActual);
-        }
     }
 
     public double obtenerTemperaturaActual() {

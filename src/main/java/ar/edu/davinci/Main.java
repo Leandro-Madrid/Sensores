@@ -12,10 +12,9 @@ public class Main {
         Usuario usuario2 = new Usuario("Roberto", umbralUsuario2);
         sensor.agregarObservador(usuario2);
 
-
-        sensor.establecerTemperatura(22.0); // Ninguna notificación
-        sensor.establecerTemperatura(14.0); // Notifica Alicia
-        sensor.establecerTemperatura(28.0); // Notifica Roberto
-        sensor.establecerTemperatura(26.0); // Notifica Roberto
+        sensor.establecerTemperatura(22.0);
+        sensor.establecerTemperatura(14.0);
+        sensor.establecerTemperatura(28.0);
+        sensor.establecerTemperatura(26.0);
     }
 }
